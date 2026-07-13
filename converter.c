@@ -51,30 +51,30 @@ void convert_temperature(void) {
     float number, final;
     
 
-    
-    printf("\n--Temperature--\n");
-    printf("1. Celsius\n");
-    printf("2. Fahrenheit\n");
-    printf("Enter Choice(1-2)");
-    fscanf(stdin,"%d", &choice);
+    do{
+        printf("\n--Temperature--\n");
+        printf("1. Celsius\n");
+        printf("2. Fahrenheit\n");
+        printf("Enter Choice(1-2)");
+        fscanf(stdin,"%d", &choice);
 
-    switch(choice){
-        case 1: printf("Enter the temperature in Celsius:");
-        fscanf(stdin,"%f", &number);
-        final = number*(9.0/5.0)+32;
-        printf("%.2f°C=%.2f°F\n",number,final);
+        switch(choice){
+            case 1: printf("Enter the temperature in Celsius:");
+            fscanf(stdin,"%f", &number);
+            final = number*(C_TO_F_SCALE)+C_TO_F_OFFSET;
+            printf("%.2f°C=%.2f°F\n",number,final);
 
-        break;
-        case 2: printf("Enter the temperature in Fahrenheit:");
-         fscanf(stdin,"%f", &number);
-        final = (number-32)*(5.0/9.0);
-        printf("%.2f°F = %.2f°C\n",number,final);
-        break;
-        default: printf("Invalid choice. Try again.");
+            break;
+            case 2: printf("Enter the temperature in Fahrenheit:");
+            fscanf(stdin,"%f", &number);
+            final = (number-C_TO_F_OFFSET)*(5.0/9.0);
+            printf("%.2f°F = %.2f°C\n",number,final);
+            break;
+            default: printf("Invalid choice. Try again.");
 
 
-    }
-
+        }
+    } while (choice < 1 || choice > 2);
 };
 
 void convert_distance(void) {
@@ -82,29 +82,30 @@ void convert_distance(void) {
     float number, final;
     
 
+    do{
+        printf("\n--Distance--\n");
+        printf("1. Miles\n");
+        printf("2. Kilometers\n");
+        printf("Enter Choice(1-2)");
+        fscanf(stdin,"%d", &choice);
     
-    printf("\n--Distance--\n");
-    printf("1. Miles\n");
-    printf("2. Kilometers\n");
-    printf("Enter Choice(1-2)");
-    fscanf(stdin,"%d", &choice);
-   
-    switch(choice){
-        case 1: printf("Enter the distance in miles:");
-        fscanf(stdin,"%f", &number);
-        final = number*1.60934;
-        printf("%.2f miles = %.2f km\n",number,final);
+        switch(choice){
+            case 1: printf("Enter the distance in miles:");
+            fscanf(stdin,"%f", &number);
+            final = number*MI_TO_KM;
+            printf("%.2f miles = %.2f km\n",number,final);
 
-        break;
-        case 2: printf("Enter the distance in kilometers:");
-         fscanf(stdin,"%f", &number);
-        final = number/1.60934;
-        printf("%.2f km = %.2f miles\n",number,final);
-        break;
-        default: printf("Invalid choice. Try again.");
+            break;
+            case 2: printf("Enter the distance in kilometers:");
+            fscanf(stdin,"%f", &number);
+            final = number/MI_TO_KM;
+            printf("%.2f km = %.2f miles\n",number,final);
+            break;
+            default: printf("Invalid choice. Try again.");
 
 
-    }
+        }
+    } while (choice < 1 || choice > 2);
 };
 
 void convert_weight(void) {
@@ -112,29 +113,30 @@ void convert_weight(void) {
     float number, final;
     
 
+    do{
+        printf("\n--Weight--\n");
+        printf("1. Pounds\n");
+        printf("2. Kilograms\n");
+        printf("Enter Choice(1-2)");
+        fscanf(stdin,"%d", &choice);
     
-    printf("\n--Weight--\n");
-    printf("1. Pounds\n");
-    printf("2. Kilograms\n");
-    printf("Enter Choice(1-2)");
-    fscanf(stdin,"%d", &choice);
-   
-    switch(choice){
-        case 1: printf("Enter the weight in pounds:");
-        fscanf(stdin,"%f", &number);
-        final = number*.453592;
-        printf("%2.f lbs = %.2f kg\n",number,final);
+        switch(choice){
+            case 1: printf("Enter the weight in pounds:");
+            fscanf(stdin,"%f", &number);
+            final = number*LB_TO_KG;
+            printf("%2.f lbs = %.2f kg\n",number,final);
 
-        break;
-        case 2: printf("Enter the weight in kilograms:");
-         fscanf(stdin,"%f", &number);
-        final = number/.453592;
-        printf("%.2f kg = %.2f lbs\n",number,final);
-        break;
-        default: printf("Invalid choice. Try again.");
+            break;
+            case 2: printf("Enter the weight in kilograms:");
+            fscanf(stdin,"%f", &number);
+            final = number/LB_TO_KG;
+            printf("%.2f kg = %.2f lbs\n",number,final);
+            break;
+            default: printf("Invalid choice. Try again.");
 
 
-    }
+        }
+    } while (choice < 1 || choice > 2);
 };
 
 void convert_speed(void) {
@@ -142,28 +144,29 @@ void convert_speed(void) {
     float number, final;
     
 
-    
-    printf("\n--Speed--\n");
-    printf("1. MPH\n");
-    printf("2. KPH\n");
-    printf("Enter Choice(1-2)");
-    fscanf(stdin,"%d", &choice);
+    do{
+        printf("\n--Speed--\n");
+        printf("1. MPH\n");
+        printf("2. KPH\n");
+        printf("Enter Choice(1-2)");
+        fscanf(stdin,"%d", &choice);
 
-    switch(choice){
-        case 1: printf("Enter the speed in MPH:");
-        fscanf(stdin,"%f", &number);
-        final = number*1.60934;
-        printf("%.2f mph = %.2f kph\n",number,final);
+        switch(choice){
+            case 1: printf("Enter the speed in MPH:");
+            fscanf(stdin,"%f", &number);
+            final = number*MI_TO_KM;
+            printf("%.2f mph = %.2f kph\n",number,final);
 
-        break;
-        case 2: printf("Enter the speed in KPH:");
-         fscanf(stdin,"%f", &number);
-        final = number/1.60934;
-        printf("%.2f kph = %.2f mph\n",number,final);
-        break;
-        default: printf("Invalid choice. Try again.");
+            break;
+            case 2: printf("Enter the speed in KPH:");
+            fscanf(stdin,"%f", &number);
+            final = number/MI_TO_KM;
+            printf("%.2f kph = %.2f mph\n",number,final);
+            break;
+            default: printf("Invalid choice. Try again.");
 
 
-    }
+        }
+    } while (choice < 1 || choice > 2);
 }
 
